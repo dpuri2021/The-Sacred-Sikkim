@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SACRED SIKKIM</title>
+  <style>
+    /* Custom styles for uniqueness beyond Tailwind */
+    .hero-bg {
+      background-image: url('IMG_4401.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+    .card-hover {
+      transition: transform 0.3s ease-in-out;
+      cursor: pointer;
+    }
+    .card-hover:hover,
+    .card-hover:focus {
+      transform: translateY(-10px);
+      outline: none;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+      background-color: #78350f;
+      color:#fff
+    }
+    
+    .review-hover {
+      transition: transform 0.3s ease-in-out;
+      cursor: pointer;
+    }
+    .review-hover:hover,
+    .review-hover:focus {
+      transform: translateY(-10px);
+      outline: none;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
+html
+ {
+  scroll-behavior: smooth;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(50px); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+
+#tag {
+  animation: slideUp 1.5s ease-out forwards;
+}
+
+
+
+#contain{
+  position: relative;
+  top:70px;
+  }
+
+
+  #mobile-menu ul li a {
+  display: block;
+  padding: 12px 0;  /* increase vertical spacing */
+  border-bottom: 1px solid #e5e5e5; /* optional line divider */
+}
+
+  
+  </style>
+
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+
+</head>
+<body class= "opacity-0 bg-amber-50 font-sans transition-opacity duration-200">
+
+  <!-- Header -->
+  <header class="bg-amber-50 text-amber-950 fixed w-full z-30 shadow-md">
+    <nav
+      class="container mx-auto px-4 py-4 flex justify-between items-center"
+      aria-label="Primary Navigation"
+    >
+      <h1 class="text-2xl font-bold select-none text-amber-950"> THE SACRED SIKKIM</h1>
+      <ul class="hidden md:flex space-x-6 text-lg font-medium">
+        <li><a href="#hero" class="hover:text-amber-800 focus:text-amber-50 focus:outline-none">Home</a></li>
+        <li><a href="#monasteries" class="hover:text-amber-800 focus:text-amber-50 focus:outline-none">Monasteries</a></li>
+        <li><a href="#preservation" class="hover:text-amber-800 focus:text-amber-50 focus:outline-none">Cultural Preservation</a></li>
+        <li><a href="#tours" class="hover:text-amber-800 focus:text-amber-50 focus:outline-none">Tours</a></li>
+        <li><a href="#virtual" class="hover:text-amber-800 focus:text-amber-50 focus:outline-none">360-degree</a></li>
+        <li><a href="#audioguide" class="hover:text-amber-800 focus:text-amber-50 focus:outline-none">Voices & Visions</a></li>
+        <li><a href="#searchSlide" class="hover:text-amber-800 focus:text-amber-50 focus:outline-none">Planner</a></li>
+         <li><a href="#reviews" class="hover:text-amber-800 focus:text-amber-50 focus:outline-none">Reviews</a></li>
+        <li><a href="#contact" class="hover:text-amber-800 focus:text-amber-50 focus:outline-none">Contact</a></li>
+      </ul>
+      <button
+        id="menu-toggle"
+        aria-controls="mobile-menu"
+        aria-expanded="false"
+        aria-label="Toggle menu"
+        class="md:hidden text-3xl focus:outline-none focus:ring-2 focus:ring-amber-50"
+      >
+        ☰
+      </button>
+    </nav>
+    <div
+      id="mobile-menu"
+      class="md:hidden hidden bg-amber-50 p-4"
+      role="menu"
+      aria-label="Mobile Navigation"
+    >
+      <ul class="space-y-2 text-amber-950 text-lg font-semibold">
+        <li><a href="#hero" class="block px-2 py-2 rounded hover:bg-amber-50 focus:bg-amber-50 focus:outline-none">Home</a></li>
+        <li><a href="#monasteries" class="block px-2 py-2 rounded hover:bg-amber-50 focus:bg-amber-50 focus:outline-none">Monasteries</a></li>
+        <li><a href="#preservation" class="hover:text-amber-800 focus:text-amber-50 focus:outline-none">Cultural Preservation</a></li>
+        <li><a href="#tours" class="block px-2 py-2 rounded hover:bg-amber-50 focus:bg-amber-50 focus:outline-none">Tours</a></li>
+         <li><a href="#virtual" class="hover:text-amber-800 focus:text-amber-50 focus:outline-none">360-degree</a></li>
+           <li><a href="#audioguide" class="hover:text-amber-800 focus:text-amber-50 focus:outline-none">Voices & Visions</a></li>
+         <li><a href="#searchSlide" class="hover:text-amber-50 focus:text-amber-50 focus:outline-none">Planner</a></li>
+           <li><a href="#reviews" class="hover:text-amber-800 focus:text-amber-50 focus:outline-none">Reviews</a></li>
+        <li><a href="#contact" class="block px-2 py-2 rounded hover:bg-amber-50 focus:bg-amber-50 focus:outline-none">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Spacer for fixed header -->
+  <div class="h-20 md:h-24"></div>
+
+  <!-- Hero Section -->
+  <section
+    id="hero"
+    class="hero-bg text-amber-950 text-center py-20 md:py-32 px-4"
+    role="region"
+    aria-label="Hero Section"
+  >
+    <div class="container mx-auto max-w-5xl">
+    
+
+
+<h2 id="tag" class="text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg leading-tight font-serif" >
+  Explore the Sacred Monasteries of Sikkim
+</h2>
+
+      
+      <p class="text-lg md:text-xl mb-8 max-w-3xl mx-auto drop-shadow-md">
+        Discover the rich heritage and spiritual beauty of Sikkim's monasteries,
+        preserved digitally for global tourism and cultural awareness.
+      </p>
+      <a
+        href="#monasteries"
+        class="bg-amber-950 text-amber-50 px-6 py-3 rounded-full font-semibold hover:bg-amber-800 focus:outline-none focus:ring-4 focus:ring-yellow-300 transition"
+        >Explore Now</a
+      >
+    </div>
+
+
+    <!-- Monastery Details Modals -->
+<div id="detailsModal" class="fixed inset-0 hidden bg-black bg-opacity-50 flex items-center justify-center z-50">
+  <div class="bg-amber-950  rounded-2xl shadow-2xl max-w-lg w-full p-8 relative animate-fadeIn">
+    <button onclick="closeModal()" class="absolute top-3 right-3 text-amber-50 hover:text-amber-700 text-2xl">&times;</button>
+    <h3 id="modalTitle" class="text-2xl font-bold text-amber-50 mb-4"></h3>
+    <ul id="modalContent" class="list-disc list-inside space-y-2 text-amber-50"></ul>
+  </div>
+</div>
+
+
+
+<style>
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  .animate-fadeIn {
+    animation: fadeIn 0.3s ease-out;
+  }
+</style>
+
+  </section>
+
+  <!-- Featured Monasteries -->
+  <section
+    id="monasteries"
+    class="py-16 bg-amber-50"
+    role="region"
+    aria-labelledby="monasteries-title"
+>
+    <div class="container mx-auto px-4 max-w-7xl">
+      <h2
+        id="monasteries-title"
+        class="text-3xl font-bold text-center mb-12 text-amber-950 mt-4">
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+  />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    select::-ms-expand {
+      display: none;
+    }
+  </style>
+
+
+        Iconic Monasteries to Showcase
+      </h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Rumtek Monastery -->
+        <article
+          tabindex="0"
+          class="bg-amber-950 text-amber-50 shadow-lg rounded-lg overflow-hidden card-hover focus:ring-4 focus:ring-amber-50"
+          role="button"
+          aria-pressed="false"
+          aria-label="View details of Rumtek Monastery"
+          onclick="showDetails('rumtek')"
+          onkeydown="if(event.key==='Enter' || event.key===' ') { showDetails('rumtek'); event.preventDefault(); }"
+        >
+          <img
+            loading="lazy"
+            src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/eb67bcef-4c2b-4d91-a8e1-03f1f789927a.png"
+            alt="Detailed view of Rumtek Monastery in Gangtok, Sikkim, featuring traditional Tibetan Buddhist architecture with golden roofs, prayer halls, and surrounded by alpine landscapes"
+            class="w-full h-56 object-cover"
+            onerror="this.style.display='none';"
+          />
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2">Rumtek Monastery</h3>
+            <p>
+              A sacred Tibetan Buddhist monastery known for its magnificent
+              architecture and spiritual festivals.
+            </p>
+          </div>
+        </article>
+        <!-- Enchey Monastery -->
+        <article
+          tabindex="0"
+          class="bg-amber-950 text-amber-50 shadow-lg rounded-lg overflow-hidden card-hover focus:ring-4 focus:ring-amber-50"
+          role="button"
+          aria-pressed="false"
+          aria-label="View details of Enchey Monastery"
+          onclick="showDetails('enchey')"
+          onkeydown="if(event.key==='Enter' || event.key===' ') { showDetails('enchey'); event.preventDefault(); }"
+        >
+          <img
+            loading="lazy"
+            src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/15fde0df-56dd-4ae4-bebf-3994622d4c34.png"
+            alt="Serene Enchey Monastery perched on a hillside in Gangtok, Sikkim, with stone structures, Buddhist statues, and views of distant snow-covered peaks"
+            class="w-full h-56 object-cover"
+            onerror="this.style.display='none';"
+          />
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2">Enchey Monastery</h3>
+            <p>
+              A peaceful retreat offering breathtaking views and insights into
+              Sikkim's religious heritage.
+            </p>
+          </div>
+        </article>
+        <!-- Pemayangtse Monastery -->
+        <article
+          tabindex="0"
+          class="bg-amber-950 text-amber-50 shadow-lg rounded-lg overflow-hidden card-hover focus:ring-4 focus:ring-amber-50"
+          role="button"
+          aria-pressed="false"
+          aria-label="View details of Pemayangtse Monastery"
+          onclick="showDetails('pemayangtse')"
+          onkeydown="if(event.key==='Enter' || event.key===' ') { showDetails('pemayangtse'); event.preventDefault(); }"
+        >
+          <img
+            loading="lazy"
+            src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/9e53b00a-73aa-4a1f-97e5-56286e61e9c2.png"
+            alt="Ancient Pemayangtse Monastery in Pelling, West Sikkim, showcasing intricate wooden carvings, multi-tiered structures, and lush green valleys in the background"
+            class="w-full h-56 object-cover"
+            onerror="this.style.display='none';"
+          />
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2">Pemayangtse Monastery</h3>
+            <p>
+              Noted for its thangka paintings and architectural marvels in the
+              heart of Sikkim's landscapes.
+            </p>
+          </div>
+        </article>
+        <!-- Tashiding Monastery -->
+        <article
+          tabindex="0"
+          class="bg-amber-950 text-amber-50 shadow-lg rounded-lg overflow-hidden card-hover focus:ring-4 focus:ring-amber-50"
+          role="button"
+          aria-pressed="false"
+          aria-label="View details of Tashiding Monastery"
+          onclick="showDetails('tashiding')"
+          onkeydown="if(event.key==='Enter' || event.key===' ') { showDetails('tashiding'); event.preventDefault(); }"
+        >
+          <img
+            loading="lazy"
+            src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5744d737-6991-4e1b-ba19-d3cf06caa20e.png"
+            alt="Tashiding Monastery in South Sikkim, a monastic complex with whitewashed walls, red roofs, sacred scriptures, and overlooking turquoise waters of rivers"
+            class="w-full h-56 object-cover"
+            onerror="this.style.display='none';"
+          />
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2">Tashiding Monastery</h3>
+            <p>
+              A place of profound peace and spirituality, home to ancient relics
+              and colorful festivals.
+            </p>
+          </div>
+        </article>
+        <!-- Phodong Monastery -->
+        <article
+          tabindex="0"
+          class="bg-amber-950 text-amber-50 shadow-lg rounded-lg overflow-hidden card-hover focus:ring-4 focus:ring-amber-50"
+          role="button"
+          aria-pressed="false"
+          aria-label="View details of Phodong Monastery"
+          onclick="showDetails('phodong')"
+          onkeydown="if(event.key==='Enter' || event.key===' ') { showDetails('phodong'); event.preventDefault(); }"
+        >
+          <img
+            loading="lazy"
+            src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/bf932340-a06d-464f-a88d-49a0b72507cf.png"
+            alt="Vast Phodong Monastery in North Sikkim, featuring grand assembly halls, novice monks in yellow robes, and stunning views of the Kanchenjunga range"
+            class="w-full h-56 object-cover"
+            onerror="this.style.display='none';"
+          />
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2">Phodong Monastery</h3>
+            <p>
+              The second-largest monastery in Sikkim, steeped in history and
+              panoramic mountain vistas.
+            </p>
+          </div>
+        </article>
+      </div>
+    </div>
+
+  <!-- Cultural Preservation -->
+  <section
+    id="preservation"
+    class="py-16 bg-amber-50 scroll-mt-10"
+    role="region"
+    aria-labelledby="preservation-title"
+  >
+    <div class="container mx-auto px-4 text-center max-w-5xl">
+      <h2 id="preservation-title" class="text-3xl text-amber-950 font-bold mb-8 ">
+        Cultural Preservation Efforts
+      </h2>
+      <p class="text-lg mb-8 text-amber-950">
+        Our initiative digitizes monasteries to promote tourism while
+        safeguarding Sikkim's Buddhist cultural heritage. Through virtual tours,
+        educational content, and conservation programs, we ensure these sacred
+        sites endure for future generations.
+      </p>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-amber-950 p-6 rounded-lg shadow-lg">
+          <h3 class="text-xl font-semibold mb-4 text-amber-50" >Virtual Tours</h3>
+          <p class="text-amber-50">Immerse in 360-degree views of monasteries without physical impact.</p>
+        </div>
+        <div class="bg-amber-950 p-6 rounded-lg shadow-lg">
+          <h3 class="text-xl font-semibold mb-4 text-amber-50">Educational Resources</h3>
+          <p class="text-amber-50"> 
+            Learn about Buddhist philosophies, art, and history through
+            interactive exhibits.
+          </p>
+        </div>
+        <div class="bg-amber-950 p-6 rounded-lg shadow-lg">
+          <h3 class="text-xl font-semibold mb-4 text-amber-50">Community Engagement</h3>
+          <p class="text-amber-50">
+            Involve locals in preservation to maintain traditions and
+            eco-friendly tourism.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tours Section -->
+  <section
+    id="tours"
+    class="py-16 bg-amber-50 scroll-mt-16"
+    role="region"
+    aria-labelledby="tours-title"
+  >
+    <div id="guide" class="container mx-auto px-4 max-w-5xl mb-32">
+      <h2 id="tours-title" class="text-3xl text-amber-950 font-bold text-center mb-12 ">
+        Guided Tours and Experiences
+      </h2>
+      <div class="grid lg:grid-cols-2 gap-8">
+        <div class="bg-amber-950 p-6 rounded-lg">
+          <h3 class="text-2xl font-semibold mb-4 text-amber-50">Day Trip to Gangtok Monuments</h3>
+          <p class="mb-4 text-amber-50">
+            Explore Rumtek and Enchey in a single day with expert guides,
+            including lunch and cultural insights.
+          </p>
+          <p class="text-amber-50">
+            <strong>Duration:</strong> 8 hours | <strong>Cost:</strong> Starting
+            from INR 2500 per person
+          </p>
+        </div>
+        <div class="bg-amber-950 p-6 rounded-lg">
+          <h3 class="text-2xl font-semibold mb-4 text-amber-50">West Sikkim Heritage Tour</h3>
+          <p class="mb-4 text-amber-50">
+            Visit Pemayangtse and Tashiding, featuring trekking and photographic
+            opportunities.
+          </p>
+          <p class="text-amber-50">
+            <strong>Duration:</strong> 2 days | <strong>Cost:</strong> Starting
+            from INR 5000 per person
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="sikkim-map" style="height: 324px; border: 4px solid #451a03;;"></div>
+
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+
+
+
+  
+
+  <!-- 360° Virtual Tour Embed — no API required -->
+   <section id="virtual" class="scroll-mt-36">
+<div class="text-center my-36">
+  <h2 class="text-3xl font-bold mb-28 pt-50 text-amber-950">360° Virtual Tour</h2>
+  
+  <!-- Buttons -->
+  <div class="space-x-3 mb-6">
+    <button class="px-5 py-2 bg-amber-950 text-amber-50 font-bold rounded-lg hover:bg-amber-800 transition" onclick="showTour('rumtek')">Rumtek</button>
+    <button class="px-5 py-2 bg-amber-950 text-amber-50 font-bold rounded-lg hover:bg-amber-800 transition" onclick="showTour('enchey')">Enchey</button>
+    <button class="px-5 py-2 bg-amber-950 text-amber-50 font-bold rounded-lg hover:bg-amber-800 transition" onclick="showTour('pemayangtse')">Pemyangtse</button>
+    <button class="px-5 py-2 bg-amber-950 text-amber-50 font-bold rounded-lg hover:bg-amber-800 transition" onclick="showTour('tashiding')">Tashiding</button>
+    <button class="px-5 py-2 bg-amber-950 text-amber-50 font-bold rounded-lg hover:bg-amber-800 transition" onclick="showTour('phodong')">Phodong</button>
+  </div>
+
+  <!-- Tour frame -->
+  <div class="flex justify-center">
+    <iframe id="tour-frame"
+      src=""
+      class="w-11/12 max-w-4xl h-[450px] border-4 border-amber-950 rounded-xl shadow-lg"
+      allowfullscreen
+      loading="lazy">
+    </iframe>
+  </div>
+</div>
+
+
+</section>
+
+<!-- 🎧 Audio Guide Section -->
+<section id="audioguide" class="py-16 bg-amber-50 text-center scroll-mt-20">
+  <h2 class="text-3xl font-bold text-amber-950 mb-4">Audio Showcase</h2>
+  <p class="text-lg font-bold text-amber-950 mb-10">
+    Listen to soothing sounds that reflect the sacred atmosphere of Sikkim’s monasteries.
+  </p>
+
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-6xl mx-auto">
+    
+    <!-- Audio 1: Monk Chants -->
+    <div class="flex flex-col items-center">
+      <h3 class="text-2xl font-semibold mb-2 text-amber-950 font-serif">Monk Chants</h3>
+      <div class="bg-amber-950 p-6 rounded-lg shadow-lg w-full">
+        <audio controls>
+  <source src="https://archive.org/download/TibetanChant/Tibetan%20Chant.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+      </div>
+    </div>
+
+    <!-- Audio 2: Calming Bowls -->
+    <div class="flex flex-col items-center">
+      <h3 class="text-2xl font-semibold mb-2 text-amber-950 font-serif">Calming Bowls</h3>
+      <div class="bg-amber-950 p-6 rounded-lg shadow-lg w-full">
+        <audio controls>
+  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_1a7a3a7a7a.mp3?filename=tibetan-singing-bowl-10846.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+      </div>
+    </div>
+
+    <!-- Audio 3: Nature Sounds -->
+    <div class="flex flex-col items-center">
+      <h3 class="text-2xl font-semibold mb-2 text-amber-950 font-serif">Nature Sounds</h3>
+      <div class="bg-amber-950 p-6 rounded-lg shadow-lg w-full">
+        <audio controls>
+  <source src="https://cdn.pixabay.com/download/audio/2022/10/25/audio_7303d2c9d4.mp3?filename=forest-nature-atmosphere-ambient-124008.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- 🎥 Documentary Showcase Section -->
+<section id="documentary" class="py-16 bg-amber-50">
+  <div class="text-center mb-12">
+    <h2 class="text-3xl font-bold text-amber-950 mb-4">Documentary Showcase</h2>
+    <p class="text-lg text-amber-950 font-bold">
+      Experience Sikkim’s monasteries through short films and cultural clips.
+    </p>
+  </div>
+
+  <div class="grid grid-cols-2 gap-8 max-w-5xl mx-auto">
+    <!-- Sikkim Documentary -->
+     <div class="w-full aspect-video">
+    <iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/1hB2g2uLakI?si=F2lLGvaFYf8AVNe6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+     </div>
+    <!-- Sikkim Travel Guide-->
+     <div class="w-full aspect-video">
+    <iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/K7IYGNxwzQA?si=AHSO_j5whLMsCKje" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
+  </div>
+</section>
+
+<!-- Search Filters Slide -->
+    <section id="searchSlide" class="flex-grow pt-44 pb-36  ">    
+      <h2 class="text-3xl font-bold text-amber-950 mb-4 text-center pb-8">Plan Your Spiritual Journey Through Sikkim</h2>
+      <div class="max-w-6xl mx-auto rounded 2xl overflow-hidden ">              
+      <div class="bg-[url('IMG_4423.JPG')] bg-center bg-no-repeat bg-cover relative h-[400px] ">
+        <!-- Background image only -->
+      </div>
+
+
+      <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 bg-[#f5f5f5] text-amber-950 text-xs font-normal select-none relative">
+        <!-- Destination -->
+        <div class="flex flex-col justify-center gap-1 px-6 py-4 border-r border-amber-50 bg-amber-950 min-w-full md:min-w-[220px] ">
+          <div class="text-[10px] uppercase text-amber-50 font-normal tracking-wide select-text" style="font-feature-settings: 'liga' 0;">
+            DESTINATION
+          </div>
+          <div class="flex items-center gap-1 font-semibold text-amber-50 select-text relative flex-wrap text-sm md:text-base">
+            <i class="fas fa-map-marker-alt text-amber-50 text-sm"></i>
+            <select id="destination" class="appearance-none bg-transparent font-semibold text-amber-50 cursor-pointer focus:outline-none pr-6 h-8 md:h-10" aria-label="Select Destination">
+              <option value="" disabled selected>Destination</option>
+              <option value="rumtek">Rumtek Monastery</option>
+              <option value="enchey">Enchey Monastery</option>
+              <option value="pemayangtse">Pemayangtse Monastery</option>
+              <option value="tashiding">Tashiding Monastery</option>
+              <option value="phodong">Phodong Monastery</option>
+            </select>
+            <i class="fas fa-chevron-down text-amber-50 text-xs pointer-events-none absolute right-2 top-1/2 -translate-y-1/2"></i>
+          </div>
+          <div class="text-[9px] text-amber-50 font-normal select-text leading-tight mt-1  ">
+            Choose your preferred location to start your adventure.
+          </div>
+        </div>
+
+        <!-- Activities -->
+        <div class="flex flex-col justify-center gap-1 px-6 py-4 border-r-0 md:border-r border-amber-50 min-w-full md:min-w-[220px] bg-amber-950 ">
+          <div class="text-[10px] uppercase text-amber-50 font-normal tracking-wide select-text" style="font-feature-settings: 'liga' 0;">
+            ACTIVITIES
+          </div>
+          <div class="flex items-center gap-1 font-semibold text-amber-50 cursor-pointer select-text relative flex-wrap text-sm md:text-base">
+            <i class="fas fa-walking text-amber-50 text-sm"></i>
+            <select id="activities" class="appearance-none bg-transparent font-semibold text-amber-50 cursor-pointer focus:outline-none pr-6 h-8 md:h-10" aria-label="Select Activities">
+              <option value="" disabled selected>Activities</option>
+              <option value="Hiking">Hiking</option>
+              <option value="Sightseeing">Sightseeing</option>
+              <option value="Cultural Tours">Cultural Tours</option>
+              <option value="Relaxation">Relaxation</option>
+              <option value="Adventure Sports">Adventure Sports</option>
+            </select>
+            <i class="fas fa-chevron-down text-amber-50 text-xs pointer-events-none absolute right-2 top-1/2 -translate-y-1/2"></i>
+          </div>
+          <div class="text-[9px] text-amber-50 font-normal select-text leading-tight">
+            Select activities that match your interests and energy level.
+          </div>
+        </div>
+
+        
+        <!-- Horizontal line only on small screens -->
+<div class="sm:hidden col-span-2 border-t border-amber-50"></div>
+
+
+        <!-- Duration -->
+        <div class="flex flex-col justify-center gap-1 px-6 py-4 border-r border-amber-50 min-w-full md:min-w-[220px] bg-amber-950 ">
+          <div class="text-[10px] uppercase text-amber-50 font-normal tracking-wide select-text" style="font-feature-settings: 'liga' 0;">
+            DURATION
+          </div>
+          <div class="flex items-center gap-1 font-semibold text-amber-50 cursor-pointer select-text relative flex-wrap text-sm md:text-base">
+            <i class="fas fa-calendar-alt text-amber-50 text-sm"></i>
+            <select id="duration" class="appearance-none bg-transparent font-semibold text-amber-50 cursor-pointer focus:outline-none pr-6 h-8 md:h-10" aria-label="Select Duration">
+              <option value="" disabled selected>Duration</option>
+              <option value="3">3 days</option>
+              <option value="4">4 days</option>
+              <option value="5">5 days</option>
+              <option value="6">6 days</option>
+              <option value="7">7 days</option>
+              <option value="8">8 days</option>
+              <option value="9">9 days</option>
+              <option value="10">10 days</option>
+              <option value="11">11 days</option>
+              <option value="12">12 days</option>
+            </select>
+            <i class="fas fa-chevron-down text-amber-50 text-xs pointer-events-none absolute right-2 top-1/2 -translate-y-1/2"></i>
+          </div>
+          <div class="text-[9px] text-amber-50 font-normal select-text leading-tight">
+            Decide how long you want your trip to be.
+          </div>
+        </div>
+
+        <!-- Budget -->
+        <div class="flex flex-col justify-center gap-1 px-6 py-4 min-w-full md:min-w-[220px] bg-amber-950  ">
+          <div class="text-[10px] uppercase text-amber-50 font-normal tracking-wide select-text" style="font-feature-settings: 'liga' 0;">
+            BUDGET
+          </div>
+          <div class="flex items-center gap-1 font-semibold text-amber-50 cursor-pointer select-text relative flex-wrap text-sm md:text-base">
+            <i class="fas fa-dollar-sign text-amber-50 text-sm"></i>
+            <select id="budget" class="appearance-none bg-transparent font-semibold text-amber-50 cursor-pointer focus:outline-none pr-6 h-8 md:h-10" aria-label="Select Budget">
+              <option value="" disabled selected>Budget</option>
+              <option value="0-2000">$0 - $2,000</option>
+              <option value="2001-4000">$2,001 - $4,000</option>
+              <option value="4001-6000">$4,001 - $6,000</option>
+              <option value="6001-8000">$6,001 - $8,000</option>
+              <option value="8001-10000">$8,001 - $10,000</option>
+              <option value="10001-12000">$10,001 - $12,000</option>
+            </select>
+            <i class="fas fa-chevron-down text-amber-50 text-xs pointer-events-none absolute right-2 top-1/2 -translate-y-1/2"></i>
+          </div>
+          <div class="text-[9px] text-gray-50 font-normal select-text leading-tight">
+            Set your budget to find options within your price range.
+          </div>
+        </div>
+      </div>
+
+
+      
+
+      <!-- Search Button Centered -->
+      <div class="flex items-center justify-center w-full mt-4 px-6">
+        <button
+          id="searchBtn"
+          class="bg-amber-950 text-amber-50 font-semibold text-sm rounded-full px-8 py-2 hover:bg-amber-800 transition-colors"
+          type="button"
+        >
+          Search
+        </button>
+      </div>
+       </div>
+    </section>
+
+    <!-- Details Slide -->
+    <section id="detailsSlide" class="hidden max-w-6xl mx-auto rounded 2xl overflow-hidden text-amber-950 pt-56 pb-56">
+      <h2 id="detailsTitle" class="text-3xl font-bold mb-6"></h2>
+      <div class="flex flex-col md:flex-row gap-6 border-4 border-amber-950 p-16">
+        <img loading="lazy"
+         id="detailsImage" src="" alt="" class="w-full md:w-1/2 rounded-lg object-cover max-h-80" />
+        <div class="flex flex-col gap-4">
+          <p id="detailsDescription" class="text-lg" ></p>
+          <p><strong>Price:</strong> <span id="detailsPrice"></span></p>
+          <p><strong>Duration:</strong> <span id="detailsDuration"></span> days</p>
+          <p><strong>Selected Activities:</strong> <span id="detailsActivities"></span></p>
+          <p><strong>Your chosen duration:</strong> <span id="detailsChosenDuration"></span></p>
+          <p><strong>Your budget range:</strong> <span id="detailsBudget"></span></p>
+
+          <div class="mt-6 flex justify-center">
+  <button id="planTripBtn" class="bg-amber-950 text-amber-50 font-semibold text-sm rounded-full px-8 py-2 hover:bg-amber-800 transition-colors">
+    Plan My Trip
+  </button>
+</div>
+        </div>
+      </div>
+      <!-- Back button centered -->
+<div class="mt-4 flex justify-center">
+  <button id="backBtn" class="bg-amber-950 text-amber-50 font-semibold text-sm rounded-full px-8 py-2 hover:bg-amber-800 transition-colors">
+    &larr; Back
+  </button>
+</div>
+    </section>
+  </div>
+
+
+<!-- Client Reviews -->
+<section id="reviews" class="py-16 bg-white mt-80 scroll-mt-80 mb-44 "  role="region" aria-labelledby="reviews-title">
+  <div class="container mx-auto px-6">
+    <h2 id="reviews-title" class="text-3xl font-bold text-center mb-12 text-amber-950 ">
+      What Our Clients Say
+    </h2>
+    <div class="grid gap-8 md:grid-cols-3">
+      
+      <!-- Review 1 -->
+      <div class="bg-amber-50 p-6 rounded-2xl shadow-md review-hover">
+        <p class="text-gray-700 italic mb-4">
+          "This place is magical! The ambience and hospitality were beyond my expectations."
+        </p>
+        <div class="flex items-center">
+          <img src="client1.jpg" alt="Client 1" class="w-12 h-12 rounded-full mr-4">
+          <div>
+            <h3 class="text-lg font-semibold">Aarav Sharma</h3>
+            <p class="text-sm text-gray-500">Traveler</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Review 2 -->
+      <div class="bg-amber-50 p-6 rounded-2xl shadow-md review-hover">
+        <p class="text-gray-700 italic mb-4">
+          "I loved the peaceful vibes and beautiful views. Highly recommended!"
+        </p>
+        <div class="flex items-center">
+          <img src="client2.jpg" alt="Client 2" class="w-12 h-12 rounded-full mr-4">
+          <div>
+            <h3 class="text-lg font-semibold">Simran Kaur</h3>
+            <p class="text-sm text-gray-500">Explorer</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Review 3 -->
+      <div class="bg-amber-50 p-6 rounded-2xl shadow-md review-hover">
+        <p class="text-gray-700 italic mb-4">
+          "Perfect destination for peace seekers. I’ll definitely come back again."
+        </p>
+        <div class="flex items-center">
+          <img src="client3.jpg" alt="Client 3" class="w-12 h-12 rounded-full mr-4">
+          <div>
+            <h3 class="text-lg font-semibold">Rahul Verma</h3>
+            <p class="text-sm text-gray-500">Photographer</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+  <!-- Contact -->
+  <section
+    id="contact"
+    class="py-16 bg-amber-50 text-amber-950 px-6 md:px-20 mb-36"
+    role="region"
+    aria-labelledby="contact-title"
+  >
+    <div id="contain" class="container mx-auto px-4 text-center max-w-lg mb-[15px]">
+      <h2 id="contact-title" class="text-3xl font-bold mb-8">
+        Contact Us for Inquiries
+      </h2>
+      <form
+        action="https://formspree.io/f/xzzakvne"
+        method="POST"
+        class="max-w-lg mx-auto space-y-4"
+        id="contact-form"
+      >
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Your Name"
+          class="w-full p-4 rounded-lg text-amber-950"
+          required
+          aria-required="true"
+        />
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Your Email"
+          class="w-full p-4 rounded-lg text-amber-950"
+          required
+          aria-required="true"
+        />
+        <textarea
+          id="message"
+          name="message"
+          placeholder="Your Message"
+          class="w-full p-4 rounded-lg text-amber-950"
+          rows="4"
+          required
+          aria-required="true"
+        ></textarea>
+        <button
+          type="submit"
+          class="bg-amber-950 text-amber-50  px-6 py-3 rounded-full font-semibold hover:bg-amber-800 focus:outline-none focus:ring-4 focus:ring-yellow-300 transition"
+        >
+          Send Message
+        </button>
+      </form>
+      <p
+        id="success-message"
+        class="mt-4 text-amber-950 font-semibold hidden"
+        role="alert"
+        aria-live="polite"
+      >
+        Message sent successfully! We will get back to you soon.
+      </p>
+      <p
+        id="error-message"
+        class="mt-4 text-red-400 font-semibold hidden"
+        role="alert"
+        aria-live="assertive"
+      >
+        Oops! Something went wrong. Please try again.
+
+
+
+
+        <!-- Java Script -->
+        <script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <script>
+  const monasteryData = {
+    rumtek: {
+      title: "Rumtek Monastery",
+      points: [
+        "Built in 16th century by 9th Karmapa, Wangchuk Dorje.",
+        "Re-established in 1960s by 16th Karmapa after fleeing Tibet.",
+        "Houses sacred relics, golden stupa, & rare Buddhist manuscripts.",
+        "Serves as the main seat of Karma Kagyu lineage outside Tibet."
+      ]
+    },
+    enchey: {
+      title: "Enchey Monastery",
+      points: [
+        "Founded in 1909 by Lama Druptob Karpo, known for his tantric powers.",
+        "Built on the site blessed by the 8th-century Guru Padmasambhava.",
+        "Famous for its Chaam (masked dance) festivals.",
+        "Overlooks Gangtok with stunning views of Kanchenjunga."
+      ]
+    },
+    pemayangtse: {
+      title: "Pemayangtse Monastery",
+      points: [
+        "Established in the 17th century by Lama Lhatsun Chempo.",
+        "One of the oldest and most prestigious monasteries in Sikkim.",
+        "Houses a 7-tier wooden structure depicting heaven, 'Zangdok Palri'.",
+        "Played a vital role in coronation rituals of Sikkimese kings."
+      ]
+    },
+    tashiding: {
+      title: "Tashiding Monastery",
+      points: [
+        "Founded in 1641 by Ngadak Sempa Chempo, a follower of Guru Rinpoche.",
+        "Considered the most sacred monastery in Sikkim.",
+        "Hosts the Bhumchu Festival, attracting thousands of devotees.",
+        "Holds holy water believed to purify all sins."
+      ]
+    },
+    phodong: {
+      title: "Phodong Monastery",
+      points: [
+        "Built in the early 18th century under the patronage of the King of Sikkim.",
+        "Belongs to the Karma Kagyu sect of Tibetan Buddhism.",
+        "Known for beautiful murals and annual Chaam dance festivals.",
+        "Reconstructed in the 20th century but retains historic relics."
+      ]
+    }
+  };
+
+  function showDetails(monastery) {
+    const modal = document.getElementById("detailsModal");
+    const title = document.getElementById("modalTitle");
+    const content = document.getElementById("modalContent");
+
+    title.textContent = monasteryData[monastery].title;
+    content.innerHTML = "";
+    monasteryData[monastery].points.forEach(point => {
+      const li = document.createElement("li");
+      li.textContent = point;
+      content.appendChild(li);
+    });
+
+    modal.classList.remove("hidden");
+  }
+
+  function closeModal() {
+    document.getElementById("detailsModal").classList.add("hidden");
+  }
+</script>
+
+ <script src="https://cdn.tailwindcss.com"></script>
+
+
+  <script>
+var map = L.map('sikkim-map').setView([27.533, 88.512], 9);
+
+// Clean-looking map
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+}).addTo(map);
+
+// Add monastery markers
+var monasteries = [
+    {name: "Rumtek Monastery", coords: [27.337, 88.611]},
+    {name: "Enchey Monastery", coords: [27.334, 88.611]},
+    {name: "Pemayangtse Monastery", coords: [27.287, 88.276]},
+    {name: "Tashiding Monastery", coords: [27.284, 88.303]},
+    {name: "Phodong Monastery", coords: [27.445, 88.231]}
+];
+
+monasteries.forEach(function(m) {
+    L.marker(m.coords).addTo(map)
+     .bindPopup("<b>" + m.name + "</b>");
+});
+</script>
+
+<script>
+  function showTour(monastery) {
+    const iframe = document.getElementById("tour-frame");
+    const tours = {
+      rumtek:      "https://www.google.com/maps/embed?pb=!4v1757337453761!6m8!1m7!1sCAoSFkNJSE0wb2dLRUlDQWdJRHNqcnJmWUE.!2m2!1d27.3059104605377!2d88.53628917812625!3f26.221613!4f0!5f0.7820865974627469",
+      enchey:      "https://www.google.com/maps/embed?pb=!4v1757339706850!6m8!1m7!1sCAoSF0NJSE0wb2dLRUlDQWdJQ0pzTXEzOWdF!2m2!1d27.33593677395685!2d88.61916587167339!3f44.015686!4f0!5f0.7820865974627469",
+      pemayangtse: "https://www.google.com/maps/embed?pb=!4v1757350766308!6m8!1m7!1sCAoSF0NJSE0wb2dLRUlDQWdJREVoSlhucEFF!2m2!1d27.30518919282202!2d88.25156580066201!3f32.85!4f2.519999999999996!5f0.4000000000000002",
+      tashiding:   "https://www.google.com/maps/embed?pb=!4v1757339902492!6m8!1m7!1sCAoSFkNJSE0wb2dLRUlDQWdJQ0V6c08zSWc.!2m2!1d27.30891943909927!2d88.29787983128344!3f337.7484!4f0!5f0.7820865974627469" ,
+      phodong:     "https://www.google.com/maps/embed?pb=!4v1757339949677!6m8!1m7!1sCAoSFkNJSE0wb2dLRUlDQWdJRGg0OURqV3c.!2m2!1d27.41303405816734!2d88.58375766744783!3f161.06181!4f0!5f0.7820865974627469",
+    };
+    iframe.src = tours[monastery];
+  }
+
+  // Load Rumtek by default
+  showTour("rumtek");
+</script>
+
+<script>
+    const tripData = {
+      rumtek: {
+        name: "Rumtek Monastery",
+        price: 8000,
+        duration: 7,
+        description : "A sacred Tibetan Buddhist monastery known for its magnificent architecture and spiritual festivals. ",
+        image: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/eb67bcef-4c2b-4d91-a8e1-03f1f789927a.png",
+        alt: "Detailed view of Rumtek Monastery in Gangtok, Sikkim, featuring traditional Tibetan Buddhist architecture with golden roofs, prayer halls, and surrounded by alpine landscapes"
+      },
+      enchey: {
+        name: "Enchey Monastery",
+        price: 9000,
+        duration: 9,
+        description: "A peaceful retreat offering breathtaking views and insights into Sikkim's religious heritage.",
+        image: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/15fde0df-56dd-4ae4-bebf-3994622d4c34.png",
+        alt: "Serene Enchey Monastery perched on a hillside in Gangtok, Sikkim, with stone structures, Buddhist statues, and views of distant snow-covered peaks"
+      },
+      pemayangtse: {
+        name: "Pemayangtse Monastery",
+        price: 11000,
+        duration: 8,
+        description: "Noted for its thangka paintings and architectural marvels in the heart of Sikkim's landscapes.",
+        image: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/9e53b00a-73aa-4a1f-97e5-56286e61e9c2.png",
+        alt: "Ancient Pemayangtse Monastery in Pelling, West Sikkim, showcasing intricate wooden carvings, multi-tiered structures, and lush green valleys in the background"
+      },
+      tashiding: {
+        name: "Tashiding Monastery",
+        price: 8000,
+        duration: 6,
+        description: "A place of profound peace and spirituality, home to ancient relics and colorful festivals.",
+        image: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5744d737-6991-4e1b-ba19-d3cf06caa20e.png",
+        alt: "Tashiding Monastery in South Sikkim, a monastic complex with whitewashed walls, red roofs, sacred scriptures, and overlooking turquoise waters of rivers"
+      },
+      phodong: {
+        name: "Phodong Monastery",
+        price: 10000,
+        duration: 12,
+        description: "The second-largest monastery in Sikkim, steeped in history and panoramic mountain vistas.",
+        image: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/bf932340-a06d-464f-a88d-49a0b72507cf.png",
+        alt: "Vast Phodong Monastery in North Sikkim, featuring grand assembly halls, novice monks in yellow robes, and stunning views of the Kanchenjunga range"
+      }
+
+    };
+
+    const searchBtn = document.getElementById('searchBtn');
+    const backBtn = document.getElementById('backBtn');
+    const searchSlide = document.getElementById('searchSlide');
+    const detailsSlide = document.getElementById('detailsSlide');
+
+    searchBtn.addEventListener('click', () => {
+      const destinationKey = document.getElementById('destination').value;
+      const activities = document.getElementById('activities').value || 'Not selected';
+      const chosenDuration = document.getElementById('duration').value || 'Not selected';
+      const budget = document.getElementById('budget').value || 'Not selected';
+
+      if (!destinationKey) {
+        alert('Please select a destination.');
+        return;
+      }
+
+      const trip = tripData[destinationKey];
+      if (!trip) {
+        alert('Trip details not found for the selected destination.');
+        return;
+      }
+
+      // Populate details slide
+      document.getElementById('detailsTitle').textContent = trip.name;
+      const img = document.getElementById('detailsImage');
+      img.src = trip.image;
+      img.alt = trip.alt;
+      document.getElementById('detailsDescription').textContent = trip.description;
+      document.getElementById('detailsPrice').textContent = `₹${trip.price.toLocaleString()}`;
+      document.getElementById('detailsDuration').textContent = trip.duration;
+      document.getElementById('detailsActivities').textContent = activities;
+      document.getElementById('detailsChosenDuration').textContent = chosenDuration === 'Not selected' ? chosenDuration : chosenDuration + ' days';
+      document.getElementById('detailsBudget').textContent = budget;
+
+      // Show details slide, hide search slide
+      searchSlide.classList.add('hidden');
+      detailsSlide.classList.remove('hidden');
+     
+    });
+
+    backBtn.addEventListener('click', () => {
+      detailsSlide.classList.add('hidden');
+      searchSlide.classList.remove('hidden');
+      
+    });
+
+    
+  document.getElementById('planTripBtn').addEventListener('click', function() {
+    alert('Requires backend, coming soon!');
+  });
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // Fade in the page quickly
+    document.body.style.opacity = 1;
+
+    // Ensure scroll is at top
+    window.scrollTo(0,0);
+
+    // Mobile menu toggle
+    const menuToggle = document.getElementById("menu-toggle");
+    const mobileMenu = document.getElementById("mobile-menu");
+    if(menuToggle && mobileMenu){
+      menuToggle.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+    }
+  });
+</script>
+    </body>
+    </html>
